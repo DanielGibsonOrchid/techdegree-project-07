@@ -1,4 +1,6 @@
-React Gallery App
+##React Gallery App - Project 7
+This app is running on React.
+It's purpose is to search through Flickr and find images matching your search term
 
 ## Available Scripts
 
