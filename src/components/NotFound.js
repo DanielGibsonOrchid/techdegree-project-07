@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 
+//Used for search results that return 0 item array
 class NotFound extends Component {
     render() {
       return (  

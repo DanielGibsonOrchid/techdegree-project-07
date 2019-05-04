@@ -1,6 +1,7 @@
 import React from 'react';
 
-const Header = ( {title, subTitle1, subTitle2} ) => (
+//Simple header text
+const Header = ( {title} ) => (
     <header>
 
         <h1>{ title }</h1>
@@ -9,7 +10,7 @@ const Header = ( {title, subTitle1, subTitle2} ) => (
     </header>
 );
 
-/*** Edit heading text here ***/
+//Edit heading text here 
 Header.defaultProps = {
     title: 'React Gallery App - Project 7'
 }

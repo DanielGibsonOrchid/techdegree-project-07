@@ -13,6 +13,7 @@ import NotFound from './components/NotFound';
 
 class App extends Component {
 
+  //Set default state on App Startup
   constructor() {
     super();
     this.state = {
@@ -25,6 +26,7 @@ class App extends Component {
     };
   }
 
+  //Call 4 fetch API functions - 1x Homepage, 3x Navigation menus
   componentDidMount() {
     this.fetchImages();
     this.fetchCats();
@@ -32,6 +34,8 @@ class App extends Component {
     this.fetchWater();
   }
 
+  //Functions to fetch new photos from Flickr using axios fetch API
+  //First function is on App Startup - Fetches images with combined search text equal to "Cats + Cities + Water"
   fetchImages = (query = 'cats%2C+cities%2C+water') => {
     axios.get(`https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=${apiKey}&text=${query}&sort=relevance&per_page=24&format=json&nojsoncallback=1`)
       .then(response => {
@@ -45,6 +49,7 @@ class App extends Component {
     });
   }
 
+  //Three Functions - one for each navigation menu button
   fetchCats = (query = 'cats') => {
     axios.get(`https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=${apiKey}&text=${query}&sort=relevance&per_page=24&format=json&nojsoncallback=1`)
       .then(response => {
@@ -84,7 +89,9 @@ class App extends Component {
     });
   }
 
+  //Function for search query - Passed through to Search component
   fetchSearchResults = (query) => {
+    //Set loading text to appear while API function fetches images
     this.setState({
       loading: true
     })
@@ -100,7 +107,7 @@ class App extends Component {
     });
   }
 
-
+  //Render using React Router
   render() {
     return (
       <BrowserRouter>
@@ -110,8 +117,8 @@ class App extends Component {
           <Nav />
 
           <div className="photo-container">
-          <h2>Results</h2>
-          <br />
+            <h2>Results</h2>
+            <br />
 
             <Switch>
               <Route exact path="/" render= { () => 
@@ -119,6 +126,7 @@ class App extends Component {
 
               <Route path="/home" render= { () =>
                 (this.state.loading)
+                //If Loading is set to true then add text, else load Gallery photos
                 ? <h3>Loading...</h3>
                 : <Gallery photos={this.state.onStartPhotos} />
               } />
@@ -141,6 +149,7 @@ class App extends Component {
                 : <Gallery photos={this.state.water} />
               } />
 
+              {/* Search results display unique URL - If no results then returns NoFound component */}
               <Route path="/gallery/:text" render= { () => {
                 if (this.state.loading) {
                   return <h3>Loading...</h3>
@@ -151,6 +160,7 @@ class App extends Component {
                 }
               }} /> 
 
+              {/* If URL is not found - Display 404 error message with PageError component */}
               <Route component={PageError} />
             </Switch>
             
@@ -160,6 +170,5 @@ class App extends Component {
     );
   }
 }
-
 
 export default App;

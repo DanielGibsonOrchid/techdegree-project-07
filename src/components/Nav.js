@@ -2,6 +2,7 @@
 import React, { Component } from 'react';
 import { NavLink } from 'react-router-dom';
 
+//Using NavLink for each navigation menu button
 class Nav extends Component {
   render() {
     return (  

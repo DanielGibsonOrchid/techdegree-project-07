@@ -3,6 +3,7 @@ import { withRouter } from 'react-router-dom';
 
 class Search extends Component {
 
+    //State to hold searchText as input value
     state = {
         searchText: ''
     }
@@ -11,6 +12,8 @@ class Search extends Component {
         this.setState({ searchText: e.target.value });
     }
 
+    //When search is submitted - Call function in app.js to fetch images matching search text
+    //Redirects to /gallery/search text
     handleSubmit = e => {
         e.preventDefault();
         this.props.fetchSearchResults(this.state.searchText);
@@ -26,7 +29,6 @@ class Search extends Component {
                         name="search" 
                         placeholder="Search" 
                         onChange={this.onSearchChange}
-                        //ref={(input) => this.query = input}
                         />
                     <button type="submit" className="search-button">
                     <svg fill="#fff" height="24" viewBox="0 0 23 23" width="24" xmlns="http://www.w3.org/2000/svg">

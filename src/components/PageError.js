@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 
+//Used when the URL does not exist
 class PageError extends Component {
     render() {
         return (
