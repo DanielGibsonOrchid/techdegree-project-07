@@ -4,7 +4,7 @@ import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom';
 
 // App Components
 import Header from './components/Header';
-import apiKey from './components/Config';
+import apiKey from './Config';
 import Gallery from './components/Gallery';
 import Search from './components/Search';
 import Nav from './components/Nav';
