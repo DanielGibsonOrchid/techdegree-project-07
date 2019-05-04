@@ -9,7 +9,7 @@
 /coverage
 
 # api
-/src/Config.js
+/src/components/Config.js
 
 # production
 /build
