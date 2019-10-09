@@ -1,7 +1,15 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins:400,600&display=swap');
+
+:root {
+  --yellow: #ffc600;
+  --black: #272727;  
+}
+
 body {
   text-align: center;
-  font-family: 'Open Sans', sans-serif;
-  color: #3f4850;
+  /* font-family: 'Open Sans', sans-serif; */
+  font-family: 'Poppins', sans-serif;
+  color: var(--black);
 }
 
 h1, p, h3 {
@@ -37,7 +45,7 @@ a {
 
 .search-form button {
   outline: none;
-  background-color: tomato;
+  background-color: #0074D9;
   border: none;
   padding: 0px 15px;
   border-radius: 0 0.35em 0.35em 0;
@@ -62,7 +70,7 @@ input {
 
 .main-nav a {
   display: block;
-  background: tomato;
+  background: #0074D9 ;
   border-radius: 3px;
   padding: 5px;
   color: #fff;
@@ -71,7 +79,7 @@ input {
 .main-nav .active,
 .main-nav a:hover,
 .search-form button:hover {
-  background-color: #d13f1b;
+  background-color: #3498db  ;
   text-decoration: none;
   color: white;
 }
